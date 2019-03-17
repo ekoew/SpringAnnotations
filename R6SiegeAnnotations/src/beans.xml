@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<context:annotation-config/>
+
+<!-- Operators -->   
+   <bean id = "ops1" class = "co.ekoew.Operator" init-method="myInit" destroy-method="myDest">
+      <property name = "opid" value = "101"/>
+      <property name = "opcodename" value = "Ash"/>
+      <property name = "opname" value = "Eliza Cohen"/>
+      <property name = "opctu" value = "FBI SWAT"/>
+      <constructor-arg ref="SpeedStats"/> <!-- Constructor Injection -->
+   </bean>
+
+<!-- Stats -->
+   <bean id = "SpeedStats" class = "co.ekoew.Stats">
+      <property name = "opspeed" value = "3"/>
+      <property name = "oparmor" value = "1"/>
+   </bean>
+   
+   <bean id = "MediumStats" class = "co.ekoew.Stats">
+      <property name = "opspeed" value = "2"/>
+      <property name = "oparmor" value = "2"/>
+   </bean>
+   
+   <bean id = "ArmorStats" class = "co.ekoew.Stats">
+      <property name = "opspeed" value = "1"/>
+      <property name = "oparmor" value = "3"/>
+   </bean>
+
+</beans>
